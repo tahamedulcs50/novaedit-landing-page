@@ -1,3 +1,4 @@
+"use client";
 import Link from 'next/link';
 import { MotionProps } from 'framer-motion';
 
