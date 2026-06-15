@@ -1,6 +1,5 @@
 "use client";
 import Link from 'next/link';
-import { MotionProps } from 'framer-motion';
 
 interface DemoRequestProps {
   className?: string;
@@ -45,5 +44,5 @@ export default function DemoRequest({ className }: DemoRequestProps) {
         We'll never share your email with anyone else.
       </p>
     </div>
-  )
+  );
 }
