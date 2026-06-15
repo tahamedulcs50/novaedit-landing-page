@@ -6,6 +6,13 @@ interface DemoRequestProps {
 }
 
 export default function DemoRequest({ className }: DemoRequestProps) {
+  
+  // ইভেন্ট হ্যান্ডলারটি কম্পোনেন্টের ভেতরেই রাখা হয়েছে
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert('Thank you for your interest! We\'ll be in touch soon.');
+  };
+
   return (
     <div className={`max-w-md w-full space-y-6 ${className}`}>
       <h2 className="text-2xl font-bold text-foreground">
@@ -16,10 +23,7 @@ export default function DemoRequest({ className }: DemoRequestProps) {
       </p>
       <form
         className="space-y-4"
-        onSubmit={(e) => {
-          e.preventDefault();
-          alert('Thank you for your interest! We\'ll be in touch soon.');
-        }}
+        onSubmit={handleSubmit} 
       >
         <div className="space-y-2">
           <label htmlFor="email" className="text-sm font-medium text-foreground">
