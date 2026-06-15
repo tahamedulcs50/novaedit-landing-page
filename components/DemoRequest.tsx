@@ -1,21 +1,48 @@
-export default function DemoRequest() {
+import Link from 'next/link';
+import { MotionProps } from 'framer-motion';
+
+interface DemoRequestProps {
+  className?: string;
+}
+
+export default function DemoRequest({ className }: DemoRequestProps) {
   return (
-    <section className="py-12 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-          See NovaEdit in Action
-        </h2>
-        <p className="mb-8 text-gray-600 dark:text-gray-300">
-          Schedule a live demo with our team and discover how NovaEdit can
-          transform your writing workflow.
-        </p>
-        <Link
-          href="/demo"
-          className="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md transition"
+    <div className={`max-w-md w-full space-y-6 ${className}`}>
+      <h2 className="text-2xl font-bold text-foreground">
+        Request Early Access
+      </h2>
+      <p className="text-muted-foreground">
+        Be among the first to experience NovaEdit. Sign up for priority access.
+      </p>
+      <form
+        className="space-y-4"
+        onSubmit={(e) => {
+          e.preventDefault();
+          alert('Thank you for your interest! We\'ll be in touch soon.');
+        }}
+      >
+        <div className="space-y-2">
+          <label htmlFor="email" className="text-sm font-medium text-foreground">
+            Email address
+          </label>
+          <input
+            id="email"
+            type="email"
+            required
+            className="block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            placeholder="you@example.com"
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50"
         >
-          Request Demo
-        </Link>
-      </div>
-    </section>
-  );
+          Request Access
+        </button>
+      </form>
+      <p className="text-xs text-muted-foreground">
+        We'll never share your email with anyone else.
+      </p>
+    </div>
+  )
 }
